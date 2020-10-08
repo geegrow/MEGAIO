@@ -32,10 +32,10 @@ class MEGAIO
 
         static void digitalWrite(pin_t p, uint8_t value)
         {
-            if (value) {
+            if (value == HIGH) {
                 *(p.PORT) |= (1 << p.id);
-            } else {
-                *(p.PORT) &= ~(0 << p.id);
+            } else if (value == LOW) {
+                *(p.PORT) &= ~(1 << p.id);
             }
         }
 
